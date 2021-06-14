@@ -1,0 +1,17 @@
+//= require jquery
+//= require popper.min
+//= require bootstrap
+//= require bootstrap-material-design.min
+//= require rails-ujs
+// Vendor Files
+//= require perfect-scrollbar.jquery.min
+//= require moment.min
+//= require sweetalert2
+//= require bootstrap-selectpicker
+//= require bootstrap-datetimepicker.min
+//= require jquery.dataTables.min
+//= require jquery.bootstrap-wizard
+//= require bootstrap-tagsinput
+//= require chartist.min
+//= require bootstrap-notify
+//= require material-dashboard

@@ -1,0 +1,141 @@
+<% if Account.where(user_id: current_user.id).exists?%>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <% @accounts.take(1).each do |a| %>
+
+
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">store</i>
+            </div>
+            <p class="card-category">Revenue</p>
+            <h3 class="card-title">$<%= a.balance %></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+  <%= link_to  new_deposit_path, class: "btn btn-warning" do %> <i class="fab fa-cc-amazon-pay"></i>  Top Up/Credit Yor Account <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">edit_location</i>
+            </div>
+            <p class="card-category"><%= link_to "PickUp Location", edit_account_path(a) %></p>
+
+            <h3 class="card-title"></h3>
+
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+              <%= link_to edit_account_path(a), class: "btn btn-warning"  do %>  <i class="fas fa-truck"></i>  PickUp Location <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">local_shipping</i>
+            </div>
+            <p class="card-category">Send/Track Paackage</p>
+            <h3 class="card-title"><%= Order.where(user_id: current_user.id).count %> Sent</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+                <%= link_to new_order_path, class: "btn btn-warning" do %><i class="fas fa-truck-loading"> Send A Package  </i> <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row">
+
+      <br>
+      <div class="col-md-8 offset-md-3">
+        <h3>Activities</h3>
+
+        <ul class="timeline">
+          <% @orders.each do |o| %>
+            <li>
+          <div class="card">
+            <div class="card-body">
+
+
+
+                <%= link_to o.tracking_number, o %>
+                <a href="#" class="float-right">        <%= o.created_at.strftime("%d-%b-%Y") %>
+                </a>
+                <p>Address: <%= o.address %></p>
+                <p>City: <%= o.city %></p>
+                <p>State: <%= o.state %>, <%= o.country %></p>
+                <%= link_to o, class: "btn btn-warning " do %>              <i class="material-icons">local_shipping</i> Track Shpment <% end %>
+
+                <p class="float-right"><% if o.status? %><a href="#" class="btn btn-success">Awaiting Pickup</a> <%else %><a href="#" class="btn btn-danger">Out For Delivery</a> <% end %></p>
+
+
+
+            </div>
+          </div>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<% else %>
+
+<div class="content ml-md-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 push-2 ">
+        <div class="pt-md-5 pb-md-5 mt-md-5 mb-md-4">
+          <br><br><br>
+          <br><br><br>
+
+            <br><br><br>
+        </div>
+
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title">Welcome </h4>
+            <p class="card-category">Send A Package To Your Loved Ones And Friends</p>
+          </div>
+
+          <div class="card-body">
+            <div class="text-center" style="padding-top:20px; padding-bottom:20px;">
+              <%= link_to "Send A Package", new_account_path, class: "btn btn-warning" %>
+              <br />
+              <br />
+              <%= link_to "Sign-out", destroy_user_session_path, method: :delete %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

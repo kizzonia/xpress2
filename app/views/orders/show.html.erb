@@ -1,0 +1,71 @@
+<!--Breadcrumb start-->
+<div class="ed_pagetitle">
+	<div class="ed_img_overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="page_title">
+					<h2><%= @order.tracking_number %></h2>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<ul class="breadcrumb">
+					<li>  <%=  @order.first_name %>
+					</li>
+					<li>//</li>
+					<li>  <%= @order.last_name %>
+					</li>
+					<li>//</li>
+					<li><%= @order.package_size %> KG</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Breadcrumb end-->
+<div class="ed_transprentbg ed_toppadder90 ed_bottompadder90">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="ed_blog_all_item">
+					<div class="ed_blog_item ed_bottompadder50">
+						<div class="ed_blog_info">
+							<ul>
+								<li><a href="#"><i class="fa fa-user"></i><%=  @order.first_name %>  <%= @order.last_name %> </a></li>
+								<li><a href="#"><i class="fa fa-clock-o"></i>  <%= @order.created_at.strftime("%d-%b-%Y") %></a></li>
+								<li><a href="#"><i class="fa fa-comment-o"></i>   Address: <%= @order.address %>, <%= @order.city %>, <%= @order.state %>
+									<%= @order.zipcode %>, <%= @order.country %>
+
+									<p><%= @order.phone_number %></p></a></li>
+								</ul>
+								<p>  <strong>Message:</strong>
+									<%= raw(@order.message) %>
+
+								</p>
+								<p class="float-right"><% if @order.status? %>
+								 <strong>Status:</strong>  <a href="#" class="btn btn-success">In Transit</a>
+									<%else %>
+									<a href="#" class="btn btn-danger">Awaiting Pickup</a>
+									<% end %>
+								</p>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="container">
+				    <div class="page-header">
+				        <h1 id="timeline">Travel History</h1>
+				    </div>
+						<ul class="timeline">
+
+				<%= render @order.travels.reverse %>
+			</ul>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+
+
+
+                <li>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h5 class="panel-title"><small class="text-muted"><i class="far fa-clock"></i> </small><%=  travel.arrivaltime.to_datetime.strftime('%b %d %Y %I:%M%p')%></h5>
+                    </div>
+                    <div class="panel-body">
+                      <p> <strong>Location:</strong> <%= travel.location %></p>
+                      <p> <strong>Delivery Status:</strong> <%= travel.status %>.</p>
+                      <p><small class="text-muted"><i class="fas fa-shipping-fast"></i> </small>,<strong>Next Depature Date/Time:</strong> <%=  travel.departdate.to_datetime.strftime('%b %d %Y %I:%M%p') %></p>
+                    </div>
+                  </div>
+                </li>

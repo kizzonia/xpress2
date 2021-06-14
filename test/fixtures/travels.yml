@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 1
+  user: one
+  arrivaltime: MyString
+  departtime: MyString
+  location: MyString
+  status: MyString
+  departdate: 2020-02-12 14:51:27
+
+two:
+  order_id: 1
+  user: two
+  arrivaltime: MyString
+  departtime: MyString
+  location: MyString
+  status: MyString
+  departdate: 2020-02-12 14:51:27

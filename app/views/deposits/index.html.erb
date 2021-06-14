@@ -1,0 +1,161 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="fab fa-btc"></i>
+            </div>
+            <p class="card-category">BTC/USD</p>
+            <!-- code -->
+            <% market = 'USDT-BTC'
+               url_ticker = 'https://bittrex.com/api/v1.1/public/getticker'
+                response = HTTParty.get(url_ticker, query: {market: market})
+                result = response["result"]
+                @r_last = result["Last"] %>
+                <% market = 'USDT-BCH'
+                   url_ticker = 'https://bittrex.com/api/v1.1/public/getticker'
+                    response = HTTParty.get(url_ticker, query: {market: market})
+                    result = response["result"]
+                    @bch_last = result["Last"] %>
+                    <% market = 'USDT-ETH'
+                       url_ticker = 'https://bittrex.com/api/v1.1/public/getticker'
+                        response = HTTParty.get(url_ticker, query: {market: market})
+                        result = response["result"]
+                        @eth_last = result["Last"] %>
+            <h3 class="card-title" style="font-size:18px;"><%= @r_last %></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">local_offer</i> Current Market Price
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="fab fa-bitcoin"></i>
+            </div>
+            <p class="card-category">BCH/USD</p>
+            <h3 class="card-title"><%= @bch_last %></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">local_offer</i> Current Market Price
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fab fa-ethereum"></i>
+            </div>
+            <p class="card-category">ETH/USD</p>
+            <h3 class="card-title"><%= @eth_last %></h3>
+            <p></p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">local_offer</i> Current Market Price
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div>
+            <p class="card-category">Accounts</p>
+            <h3 class="card-title">    <%= Account.where(user_id: current_user.id).count %>
+
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger">warning</i>
+              <a href="#">Get More ...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-angle-double-right"></i>
+            </div>
+            <p class="card-category">Deposits</p>
+            <h3 class="card-title"><%= Deposit.where(user_id: current_user.id).count %></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-angle-double-right"></i>
+            </div>
+            <h3 class="card-title"></h3>
+
+              <%= link_to "Make A Deposit", new_deposit_path, class: "btn btn-warning" %>
+
+
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-12 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title">Deposit History</h4>
+            <p class="card-category">Previous Deposits</p>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-warning">
+
+
+    <tr>
+      <th>Amount</th>
+      <th>Payment type</th>
+      <th>Email</th>
+      <th> Status </th>
+
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @deposits.each do |deposit| %>
+      <tr>
+        <td><%= deposit.amount %></td>
+        <td><%= deposit.payment_type %></td>
+        <td><%= deposit.email %></td>
+        <td><% if deposit.status? %><a href="#" class="btn btn-success"> Paid</a> <%else %><a href="#" class="btn btn-danger">Not Confirmed</a> <% end %></td>
+
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

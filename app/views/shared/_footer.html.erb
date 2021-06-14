@@ -1,0 +1,108 @@
+<!--Newsletter Section six start-->
+<div class="ed_newsletter_section ed_toppadder90 ed_bottompadder90">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="ed_newsletter_section_heading">
+							<h4>Let us inform you about everything important directly.</h4>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--Newsletter Section six end-->
+<!--Footer Top section start-->
+<div class="ed_footer_wrapper ed_toppadder60 ed_bottompadder30">
+	<div class="ed_footer_top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-12">
+					<div class="widget text-widget">
+						<%= link_to root_path do %>
+						<% if Welcome.exists? %>
+						<% @welcomes.take(1).each do |w| %>
+						<%= image_tag (w.logoimg_url.to_s) %>
+						<% end %>
+						<% else %>
+						<h4 style="color:#fff;" >XPRSSASIA</h4>
+						<% end %>
+						<% end%>
+										<p>Transportation is the center of the world! It is the glue of our daily lives. When it goes well, we don't see it.</p>
+						<div class="ed_sociallink">
+							<ul>
+								<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12">
+					<div class="widget text-widget">
+						<h4 class="widget-title">services</h4>
+						<div class="ed_footer_menu">
+							<ul>
+								<li><a href="#">Logistic</a></li>
+					''			<li><a href="#">Warehousing</a></li>
+								<li><a href="#">Ground Transport</a></li>
+								<li><a href="#">Packaging & Storage</a></li>
+								<li><a href="#">Door-To-Door Delivery</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12">
+					<div class="widget text-widget">
+						<h4 class="widget-title">quick links</h4>
+						<div class="ed_footer_menu">
+							<ul>
+								<li><a href="index.html">home</a></li>
+								<li><a href="about.html">about</a></li>
+								<li><a href="gallery.html">gallery</a></li>
+								<li><a href="contact.html">contact us</a></li>
+								<li><a href="private_policy.html">private policy</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-12">
+					<div class="widget text-widget">
+						<h4 class="widget-title">find us</h4>
+						<!--
+							<p><i class="fa fa-home" aria-hidden="true"></i> 141 N Prospect Ave, Bergenfield, NJ, 07621</p>
+							<p><i class="fa fa-envelope" aria-hidden="true"></i><a href="#">info@transportingservices.com</a> <a href="#">public@transportingservices.co.in</a></p>
+							<p><i class="fa fa-phone" aria-hidden="true"></i> 1800-2202-0909</p>
+						--></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--Footer Top section end-->
+	<!--Footer Bottom section start-->
+	<div class="ed_footer_bottom">
+		<div class="container">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="ed_copy_right">
+							<p>&copy; Copyright 2016, All Rights Reserved, <a href="#">XpressAsia.inc</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Footer Bottom section end-->
+</div>

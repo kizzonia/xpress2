@@ -1,0 +1,38 @@
+<!--Slider form start-->
+<div class="ed_form_box ed_toppadder90 ed_bottompadder60">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="ed_heading_top ed_bottompadder50">
+          <h3>track your shipment</h3>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="ed_search_form">
+          <%= simple_form_for :search, url: orders_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <p style="color:#fff;">Look up the status of your shipment.</p>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <div class="form-group">
+  <%= f.input :tracking_number, input_html: {value: ""}, label: false, placeholder: "Enter Track Id...", class: "form-control" %>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="form-group">
+  <%= f.submit "Track ", class: "btn ed_btn pull-right ed_orange" %>
+  </div>
+</div>
+<% end %>
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="ed_search_image">
+          <img src="<%= asset_path "content/track.png" %>" alt="" title="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Slider form end-->
